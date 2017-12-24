@@ -11,7 +11,7 @@
 #define PIXELSIZE 256 //像素最大值
 
 typedef unsigned char DataType; //字符类型
-typedef unsigned long int WeightType; //权值类型
+typedef unsigned int WeightType; //权值类型
 
 typedef struct {
 	DataType data; //每个结点存放的数据
