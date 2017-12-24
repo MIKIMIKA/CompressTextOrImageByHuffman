@@ -55,6 +55,9 @@
     <ClCompile Include="GeneratedFiles\qrc_HuffmanCompressTextOrImg.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="HuffmanTree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="HuffmanCompressTextOrImg.h">
@@ -70,6 +73,9 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_HuffmanCompressTextOrImg.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Structure.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

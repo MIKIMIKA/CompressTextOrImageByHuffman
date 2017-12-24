@@ -81,6 +81,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="HuffmanCompressTextOrImg.cpp" />
+    <ClCompile Include="HuffmanTree.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_HuffmanCompressTextOrImg.h" />
+    <ClInclude Include="Structure.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="HuffmanCompressTextOrImg.qrc">
