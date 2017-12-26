@@ -1,8 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <malloc.h>
-#include <assert.h>
-#include <string.h>
+
+#include "BaseHuffmanTree.h"
 #include "Structure.h"
 
 
@@ -35,6 +32,38 @@ void select_min_tree_node(TreeNode *ht, int n, int *min)
 	//并将该结点的地址返回 
 	*min = temp_min;
 }
+
+
+/*对字符结点按照权值进行排序，然后统计出叶子结点
+(叶子结点就是我们文件中出现的结点也就是我们要实际编码的结点)的个数返回*/
+int sort_tree(TreeNode *ht)
+{
+	TreeNode temp;
+	int i, j;
+	int num = 0;
+	//按照权值从小到大排序
+	for (i = 0; i < MAXSIZE; i++)
+	{
+		for (j = 1; j < i; j++)
+		{
+			if (ht[j].weight > ht[j + 1].weight)
+			{
+				temp = ht[j];
+				ht[j] = ht[j + 1];
+				ht[j + 1] = temp;
+			}
+		}
+	}
+
+	//统计叶子结点个数
+	for (i = 0; i < MAXSIZE; i++)
+	{
+		if (ht[i].weight != 0)
+			num++; //统计叶子结点
+	}
+	return num;
+}
+
 
 
 /*从文件读取字符创建哈夫曼树，要求文件内容为英文字符或数字*/
@@ -89,35 +118,5 @@ TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, long *file_length)
 	}
 	//哈夫曼树构建完成
 	return huf_tree;
-}
-
-/*对字符结点按照权值进行排序，然后统计出叶子结点
-(叶子结点就是我们文件中出现的结点也就是我们要实际编码的结点)的个数返回*/
-int sort_tree(TreeNode *ht)
-{
-	TreeNode temp;
-	int i,j;
-	int num = 0;
-	//按照权值从小到大排序
-	for (i = 0; i < MAXSIZE; i++)
-	{
-		for (j = 1; j < i; j++)
-		{
-			if (ht[j].weight > ht[j + 1].weight)
-			{
-				temp = ht[j];
-				ht[j] = ht[j + 1];
-				ht[j + 1] = temp;
-			}
-		}
-	}
-
-	//统计叶子结点个数
-	for (i = 0; i < MAXSIZE; i++)
-	{
-		if (ht[i].weight != 0)
-			num++; //统计叶子结点
-	}
-	return num;
 }
 

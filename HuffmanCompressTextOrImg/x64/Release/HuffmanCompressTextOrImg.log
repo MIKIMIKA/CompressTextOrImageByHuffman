@@ -1,0 +1,13 @@
+﻿  main.cpp
+  HuffmanTree.c
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2059: 语法错误:“类型”
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2059: 语法错误:“)”
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2059: 语法错误:“类型”
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2059: 语法错误:“)”
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(9): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(9): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(9): error C2059: 语法错误:“)”

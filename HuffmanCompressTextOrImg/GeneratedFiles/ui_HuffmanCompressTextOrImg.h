@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -25,9 +26,10 @@ QT_BEGIN_NAMESPACE
 class Ui_HuffmanCompressTextOrImgClass
 {
 public:
+    QWidget *centralWidget;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *HuffmanCompressTextOrImgClass)
@@ -35,15 +37,19 @@ public:
         if (HuffmanCompressTextOrImgClass->objectName().isEmpty())
             HuffmanCompressTextOrImgClass->setObjectName(QStringLiteral("HuffmanCompressTextOrImgClass"));
         HuffmanCompressTextOrImgClass->resize(600, 400);
+        centralWidget = new QWidget(HuffmanCompressTextOrImgClass);
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(60, 80, 411, 131));
+        HuffmanCompressTextOrImgClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(HuffmanCompressTextOrImgClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 600, 26));
         HuffmanCompressTextOrImgClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(HuffmanCompressTextOrImgClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        HuffmanCompressTextOrImgClass->addToolBar(mainToolBar);
-        centralWidget = new QWidget(HuffmanCompressTextOrImgClass);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        HuffmanCompressTextOrImgClass->setCentralWidget(centralWidget);
+        HuffmanCompressTextOrImgClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(HuffmanCompressTextOrImgClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         HuffmanCompressTextOrImgClass->setStatusBar(statusBar);
@@ -56,6 +62,7 @@ public:
     void retranslateUi(QMainWindow *HuffmanCompressTextOrImgClass)
     {
         HuffmanCompressTextOrImgClass->setWindowTitle(QApplication::translate("HuffmanCompressTextOrImgClass", "HuffmanCompressTextOrImg", Q_NULLPTR));
+        label->setText(QApplication::translate("HuffmanCompressTextOrImgClass", "TextLabel", Q_NULLPTR));
     } // retranslateUi
 
 };
