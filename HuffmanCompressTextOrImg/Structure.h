@@ -8,12 +8,11 @@
 /*定义结构体*/
 /*包括结点类型结构体，采取顺序结构存储*/
 /*包括循环队列，构建最优二叉树时使用*/
-
 #define MAXSIZE 100
 #define PIXELSIZE 256 //像素最大值
 
 typedef unsigned char DataType; //字符类型
-typedef unsigned int WeightType; //权值类型
+typedef unsigned long int WeightType; //权值类型
 
 typedef struct {
 	DataType data; //每个结点存放的数据

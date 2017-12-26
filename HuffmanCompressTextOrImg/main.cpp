@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	long file_length;
 
 
-	fp = fopen("C://Users//22876//Desktop//test.bmp", "r");
+	fp = fopen("C://Users//鲍骞月//Desktop//test.bmp", "r");
 	if (!fp)
 	{
 		cout << "文件打开失败" << endl;

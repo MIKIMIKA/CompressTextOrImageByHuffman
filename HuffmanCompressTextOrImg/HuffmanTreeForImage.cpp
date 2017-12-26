@@ -11,7 +11,6 @@ void select_min_tree_node(TreeNode *ht, int n, int *min)
 {
 	int i = 0, temp_min;
 	WeightType min_weight;
-	//将第一个权值为0的结点保存起来，然后继续向后比较，防止重复选取
 	for (i = 0; i <= n; i++)
 	{
 		if (ht[i].parent == -1)
@@ -23,7 +22,7 @@ void select_min_tree_node(TreeNode *ht, int n, int *min)
 	}
 
 	//将此时最小的结点找出来
-	for (; i <=	n; i++)
+	for (i++; i <= n; i++)
 	{
 		if (ht[i].parent == -1 && ht[i].weight < min_weight)
 		{
@@ -32,8 +31,6 @@ void select_min_tree_node(TreeNode *ht, int n, int *min)
 		}
 	}
 
-	//将选取出来的结点的双亲设置为1，防止之后的重复选取
-	ht[temp_min].parent = 1;
 	//并将该结点的地址返回 
 	*min = temp_min;
 }
@@ -46,12 +43,12 @@ int sort_tree(TreeNode *ht)
 	TreeNode temp;
 	int i, j;
 	int num = 0;
-	//按照权值从小到大排序
-	for (i = 0; i < MAXSIZE; i++)
+	//这里权值应从大到小排列，保证有权值的结点处在数组的前面
+	for (i = 0; i < PIXELSIZE; i++)
 	{
-		for (j = 1; j < i; j++)
+		for (j = 0; j < PIXELSIZE - i - 1; j++)
 		{
-			if (ht[j].weight > ht[j + 1].weight)
+			if (ht[j].weight < ht[j + 1].weight)
 			{
 				temp = ht[j];
 				ht[j] = ht[j + 1];
@@ -61,10 +58,10 @@ int sort_tree(TreeNode *ht)
 	}
 
 	//统计叶子结点个数
-	for (i = 0; i < MAXSIZE; i++)
+	for (i = 0; i < PIXELSIZE; i++)
 	{
 		if (ht[i].weight != 0)
-			num++; //统计叶子结点
+			num++;
 	}
 	return num;
 }
@@ -78,7 +75,7 @@ TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, long *file_length)
 	int i,total_num,min1,min2;
 	DataType data;
 	//开辟二叉树空间
-	huf_tree = (TreeNode*) malloc(PIXELSIZE * sizeof(TreeNode));
+	huf_tree = (TreeNode*) malloc( 2*PIXELSIZE * sizeof(TreeNode));
 	if (!huf_tree)
 		exit(1);
 	//初始化字典中各单词结点
@@ -90,7 +87,7 @@ TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, long *file_length)
 		huf_tree[i].weight = 0;
 	}
 	//从文件中统计各字符的权值
-	for (*file_length = 0; !feof(fp); ++ (*file_length))
+	for (*file_length = 0; !feof(fp); ++(*file_length))
 	{
 		data = fgetc(fp); //具体像素
 		huf_tree[data].weight++; //统计权值
