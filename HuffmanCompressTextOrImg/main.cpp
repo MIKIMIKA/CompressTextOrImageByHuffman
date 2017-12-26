@@ -1,35 +1,39 @@
 #include "HuffmanCompressTextOrImg.h"
 #include <QtWidgets/QApplication>
 #include <iostream>
+#include <stdio.h>
 #include "Structure.h"
 #include "BaseHuffmanTree.h"
 
 using namespace std;
 
 
+int main(int argc, char *argv[])
+{
+	QApplication a(argc, argv);
+	HuffmanCompressTextOrImg w;
+	w.show();
+	FILE *fp;
+	TreeNode *huf_tree;
+	int leaf_num;
+	long file_length;
 
-	int main(int argc, char *argv[])
+
+	fp = fopen("C://Users//22876//Desktop//test.bmp", "r");
+	if (!fp)
 	{
-		QApplication a(argc, argv);
-		HuffmanCompressTextOrImg w;
-		w.show();
-		FILE *fp;
-		TreeNode *huf_tree;
-		int leaf_num;
-		long file_length;
-		fp = fopen("test.txt", "r+");
-		if (!fp)
-		{
-			cout << "文件打开失败" << endl;
-			return 0;
-		}
-		huf_tree = create_huffman_tree(fp, &leaf_num, &file_length);
-		for (int i = 0; i < 4; i++)
-		{
-			cout << huf_tree[i].data << endl;
-		}
-		system("pause");
-		return a.exec();
+		cout << "文件打开失败" << endl;
 	}
+	huf_tree = create_huffman_tree(fp, &leaf_num, &file_length);
+	for (int i = 0; i < PIXELSIZE; i++)
+	{
+		printf("序号为：%d 像素值为：%d，权值为：%d 双亲结点为:%d ", i,huf_tree[i].data,huf_tree[i].weight,huf_tree[i].parent);
+		printf("\n");
+	}
+	cout << "叶子结点数：" << leaf_num << endl;
+	system("pause");
+	getchar();
+	return a.exec();
+}
 
 

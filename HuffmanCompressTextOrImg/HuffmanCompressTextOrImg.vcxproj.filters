@@ -55,7 +55,7 @@
     <ClCompile Include="GeneratedFiles\qrc_HuffmanCompressTextOrImg.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="HuffmanTree.c">
+    <ClCompile Include="HuffmanTreeForImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
