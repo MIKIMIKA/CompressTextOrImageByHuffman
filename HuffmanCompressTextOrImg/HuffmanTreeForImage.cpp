@@ -20,6 +20,7 @@ void select_min_tree_node(TreeNode *ht, int n, int *min)
 			break;
 		}
 	}
+	
 
 	//将此时最小的结点找出来
 	for (i++; i < n; i++)
@@ -30,8 +31,7 @@ void select_min_tree_node(TreeNode *ht, int n, int *min)
 			temp_min = i;
 		}
 	}
-
-	//并将该结点的地址返回 
+	//并将该结点的下标返回 
 	*min = temp_min;
 }
 
@@ -75,9 +75,9 @@ int sort_tree(TreeNode *ht)
 char **get_huffman_code(TreeNode *ht, int leaf_num)
 {
 	char **map, *temp;
-	int i, left, right, t;
+	int i, current, right, father;
 	//先开辟编码表空间
-	//开辟每个编码的头指针
+	//开辟每个编码的头指针空间
 	map = (char **)malloc(leaf_num * sizeof(char*));
 	//处理特殊情况，只有一个叶子结点的情况 
 	if (leaf_num == 1)
@@ -87,36 +87,40 @@ char **get_huffman_code(TreeNode *ht, int leaf_num)
 		strcpy(map[0], "0"); //直接赋为0
 		return map;
 	}
-	//开辟下一个编码的空间
-	//因为每个编码最长就是叶子结点数加一,leaf_num+1,也就是权值最小的那个叶子结点
-	//逆向获取，所以先开辟这个位于最下面的叶子的编码空间
-	temp = (char *)malloc((leaf_num + 1) * sizeof(char));
+	//开辟临时存放编码的空间
+	//因为每个编码最长就是叶子结点数,leaf_num,也就是权值最小的那个叶子结点
+	temp = (char *)malloc(leaf_num * sizeof(char));
 	//从叶子结点向上获取编码(逆向编码)
-	temp[leaf_num] = '\0'; //从右向左获取编码
+	temp[leaf_num - 1] = '\0'; //从右向左存储编码
 	for (i = 0; i < leaf_num; i++) //获取所有叶子结点的编码
 	{
-		right = leaf_num; //右指针初始时指向数组最后一位
-		left = i; //左指针初始时指向当前第一位
-		for (t = ht[i].parent; t != -1; t = ht[t].parent)
+		right = leaf_num - 1; //右指针初始时指向数组最后一位
+		current = i;//定义当前访问的叶子结点，任意一个叶子结点都可以
+		father = ht[i].parent;
+		while(father != -1) //根结点无双亲
 		{
-			if (ht[t].l_child == left) //如果是左子树设置为0
+			if (ht[father].l_child == current) //如果是左子树设置为0
 			{
-				temp[--right] = '0';
+				temp[--right] = '0'; //right索引向左推进一位存储
 			}
 			else					   //右子树设置为1
 			{
-				temp[--right] = '1';//
+				temp[--right] = '1';
 			}
-			left = t; //设置下一次数组的起始下标，其实就是向前推进一位，因为每获取一次，编码长度减一
-			//t = ht[t].parent; //循环条件
+			current = father; //下次处理结点为当前结点的父亲
+			father = ht[father].parent; //循环条件
 		}
-		//开辟编码空间
-		map[i] = (char *)malloc(sizeof(char) * (leaf_num - left));
+		//开辟一个编码的空间
+		//将临时空间temp中的编码放进去
+		//这里减去right正好是当前编码的长度，right是最终位置的下标
+		map[i] = (char *)malloc(sizeof(char) * (leaf_num - right));
 		//将编码赋值
-		strcpy(map[i], &temp[left]);
-		//printf("%s\n", temp[left]);
+		//strcpy的参数是两个字符串的起始地址
+		strcpy(map[i], temp + right);//这里temp就是临时空间的首地址，加上right下标就是编码开始的位置
+		printf("像素值为:%d,哈夫曼编码为:%s\n", ht[i].data,map	[i]);
+
 	}
-	free(temp);
+	free(temp);//释放临时空间的长度
 	printf("哈夫曼编码已生成...\n");
 	return map;
 }
@@ -132,7 +136,7 @@ TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, long *file_length)
 	huf_tree = (TreeNode*) malloc(PIXELSIZE * sizeof(TreeNode));
 	if (!huf_tree)
 		exit(1);
-	//初始化字典中各单词结点
+	//初始化字典中各像素结点
 	for (i = 0; i < PIXELSIZE; i++)
 	{
 		//0-255为各字符，初始化到二叉树中
