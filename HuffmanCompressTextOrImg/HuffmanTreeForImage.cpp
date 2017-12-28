@@ -5,6 +5,36 @@
 
 /*对哈夫曼树的各项操作*/
 
+/*初始化循环队列*/
+void init_cycle_queue(MyQueue *qu)
+{
+	if (qu)
+	{
+		printf("队列已创建\n");
+		return;
+	}
+	//如果队列为空，进行初始化创建
+	qu->tag = 0;
+	qu->front = qu->rear = 0;
+	qu->length = 0;
+}
+
+/*
+入队操作
+将0，1字符进行入队操作
+*/
+void in_queue(MyQueue *qu, char ch)
+{
+	if (qu->front == qu->rear && qu->tag == 1)
+	{
+		printf("队列已满\n");
+		return;
+	}
+
+}
+
+
+
 
 /*从已有的结点数组中选取出权值最小的结点而且其父亲结点为-1,将其结点序号用min返回*/
 void select_min_tree_node(TreeNode *ht, int n, int *min)
@@ -71,6 +101,7 @@ int sort_tree(TreeNode *ht)
 /*将生成的编码保存到文件中,并返回编码个数*/
 int copy_huffman_code_to_file(FILE *fp, char **map, MyQueue *queue, DataType *length)
 {
+
 	return 7;
 }
 
