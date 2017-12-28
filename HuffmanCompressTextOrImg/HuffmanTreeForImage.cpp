@@ -68,6 +68,12 @@ int sort_tree(TreeNode *ht)
 }
 
 
+/*将生成的编码保存到文件中,并返回编码个数*/
+int copy_huffman_code_to_file(FILE *fp, char **map, MyQueue *queue, DataType *length)
+{
+	return 7;
+}
+
 /*由哈夫曼树生成哈夫曼01编码表,
 返回一个map，二维数组，一维的是每个叶子结点，
 二维中存储的是每个叶子结点对应的哈夫曼编码
@@ -83,7 +89,7 @@ char **get_huffman_code(TreeNode *ht, int leaf_num)
 	if (leaf_num == 1)
 	{
 		//开辟这个叶子结点编码的空间
-		map[0] = (char*)malloc((leaf_num + 1) * sizeof(char));
+		*map = (char*)malloc((leaf_num) * sizeof(char));
 		strcpy(map[0], "0"); //直接赋为0
 		return map;
 	}
@@ -117,7 +123,7 @@ char **get_huffman_code(TreeNode *ht, int leaf_num)
 		//将编码赋值
 		//strcpy的参数是两个字符串的起始地址
 		strcpy(map[i], temp + right);//这里temp就是临时空间的首地址，加上right下标就是编码开始的位置
-		printf("像素值为:%d,哈夫曼编码为:%s\n", ht[i].data,map	[i]);
+		printf("像素值为:%d,哈夫曼编码为:%s\n", ht[i].data,map[i]);
 
 	}
 	free(temp);//释放临时空间的长度
