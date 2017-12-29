@@ -13,12 +13,16 @@ int main(int argc, char *argv[])
 	QApplication a(argc, argv);
 	HuffmanCompressTextOrImg w;
 	w.show();
-	FILE *fp;
+	FILE *fp,*res;
 	TreeNode *huf_tree;
-	int leaf_num;
+	int leaf_num,end_length;
 	long file_length;
 	char **map;
+	char *res_file_name = "D://resultfile.txt";
+	MyQueue *qu = NULL;
 
+	qu = (MyQueue *)malloc(sizeof(MyQueue));
+	init_cycle_queue(qu);
 
 	fp = fopen("C://Users//22876//Desktop//test.bmp", "r");
 	if (!fp)
@@ -34,7 +38,9 @@ int main(int argc, char *argv[])
 	cout << "叶子结点数：" << leaf_num << endl;
 	cout << "哈夫曼编码为:" << endl;
 	map = get_huffman_code(huf_tree, leaf_num);
-
+	res = fopen(res_file_name, "w");
+	copy_huffman_code_to_file(res, map, leaf_num, qu, &end_length);
+	
 	
 	system("pause");
 	getchar();

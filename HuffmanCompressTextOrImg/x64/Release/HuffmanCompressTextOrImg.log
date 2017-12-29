@@ -1,13 +1,34 @@
-﻿  main.cpp
-  HuffmanTree.c
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2143: 语法错误: 缺少“)”(在“*”的前面)
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2143: 语法错误: 缺少“{”(在“*”的前面)
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2059: 语法错误:“类型”
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(7): error C2059: 语法错误:“)”
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2143: 语法错误: 缺少“{”(在“*”的前面)
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2143: 语法错误: 缺少“)”(在“*”的前面)
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2059: 语法错误:“类型”
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(8): error C2059: 语法错误:“)”
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(9): error C2143: 语法错误: 缺少“)”(在“*”的前面)
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(9): error C2143: 语法错误: 缺少“{”(在“*”的前面)
-d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(9): error C2059: 语法错误:“)”
+﻿生成启动时间为 2017/12/29 12:12:19。
+     1>项目“D:\CompressTextOrImageByHuffman\HuffmanCompressTextOrImg\HuffmanCompressTextOrImg.vcxproj”在节点 2 上(Build 个目标)。
+     1>CustomBuild:
+         Moc'ing HuffmanCompressTextOrImg.h...
+         Uic'ing HuffmanCompressTextOrImg.ui...
+         Rcc'ing HuffmanCompressTextOrImg.qrc...
+     1>RCC : warning : No resources in 'D:\CompressTextOrImageByHuffman\HuffmanCompressTextOrImg\HuffmanCompressTextOrImg.qrc'.
+         
+       ClCompile:
+         D:\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\Qt5.7.1\5.7\msvc2015_64\include /I.\GeneratedFiles\Release /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtCore /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtGui /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtQml /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtQuick /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtQuickWidgets /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtUiTools /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtWidgets /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtXml /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtXmlPatterns /nologo /W1 /WX- /O2 /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_QML_LIB /D QT_QUICK_LIB /D QT_QUICKWIDGETS_LIB /D QT_UITOOLS_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D QT_XMLPATTERNS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\qrc_HuffmanCompressTextOrImg.cpp
+         qrc_HuffmanCompressTextOrImg.cpp
+         D:\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /ID:\Qt5.7.1\5.7\msvc2015_64\include /I.\GeneratedFiles\Release /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtCore /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtGui /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtQml /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtQuick /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtQuickWidgets /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtUiTools /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtWidgets /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtXml /ID:\Qt5.7.1\5.7\msvc2015_64\include\QtXmlPatterns /nologo /W1 /WX- /O2 /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_QML_LIB /D QT_QUICK_LIB /D QT_QUICKWIDGETS_LIB /D QT_UITOOLS_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D QT_XMLPATTERNS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\Release\moc_HuffmanCompressTextOrImg.cpp HuffmanCompressTextOrImg.cpp HuffmanTreeForImage.cpp main.cpp SaveCode.cpp
+         moc_HuffmanCompressTextOrImg.cpp
+         HuffmanCompressTextOrImg.cpp
+         HuffmanTreeForImage.cpp
+     1>HuffmanTreeForImage.cpp : error C4335: 检测到 Mac 文件格式: 请将源文件转换为 DOS 格式或 UNIX 格式
+     1>HuffmanTreeForImage.cpp(1): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(1): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(2): fatal error C1070: 文件“d:\compresstextorimagebyhuffman\huffmancompresstextorimg\basehuffmantree.h”中的 #if/#endif 对不匹配
+         main.cpp
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h : error C4335: 检测到 Mac 文件格式: 请将源文件转换为 DOS 格式或 UNIX 格式
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(1): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(2): fatal error C1070: 文件“d:\compresstextorimagebyhuffman\huffmancompresstextorimg\basehuffmantree.h”中的 #if/#endif 对不匹配
+         SaveCode.cpp
+     1>SaveCode.cpp : error C4335: 检测到 Mac 文件格式: 请将源文件转换为 DOS 格式或 UNIX 格式
+     1>SaveCode.cpp(1): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(1): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\compresstextorimagebyhuffman\huffmancompresstextorimg\BaseHuffmanTree.h(2): fatal error C1070: 文件“d:\compresstextorimagebyhuffman\huffmancompresstextorimg\basehuffmantree.h”中的 #if/#endif 对不匹配
+         正在生成代码...
+     1>已完成生成项目“D:\CompressTextOrImageByHuffman\HuffmanCompressTextOrImg\HuffmanCompressTextOrImg.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:03.40
