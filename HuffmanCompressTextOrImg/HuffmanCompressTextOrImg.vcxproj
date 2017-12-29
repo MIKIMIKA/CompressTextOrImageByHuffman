@@ -145,6 +145,7 @@
     <ClCompile Include="HuffmanCompressTextOrImg.cpp" />
     <ClCompile Include="HuffmanTreeForImage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SaveCode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="HuffmanCompressTextOrImg.h">

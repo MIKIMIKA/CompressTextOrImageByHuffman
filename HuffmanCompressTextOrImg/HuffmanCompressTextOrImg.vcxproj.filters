@@ -58,6 +58,9 @@
     <ClCompile Include="HuffmanTreeForImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaveCode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="HuffmanCompressTextOrImg.h">
