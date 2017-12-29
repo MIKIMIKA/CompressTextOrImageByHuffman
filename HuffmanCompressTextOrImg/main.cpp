@@ -15,16 +15,16 @@ int main(int argc, char *argv[])
 	w.show();
 	FILE *fp,*res;
 	TreeNode *huf_tree;
-	int leaf_num,end_length;
+	int leaf_num,end_length,num = 0;
 	long file_length;
 	char **map;
-	char *res_file_name = "D://resultfile.txt";
+	char *res_file_name = "resultfile.barack";
 	MyQueue *qu = NULL;
 
 	qu = (MyQueue *)malloc(sizeof(MyQueue));
 	init_cycle_queue(qu);
 
-	fp = fopen("C://Users//22876//Desktop//test.bmp", "r");
+	fp = fopen("C://Users//22876//Desktop//测试.bmp", "r");
 	if (!fp)
 	{
 		cout << "文件打开失败" << endl;
@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
 	cout << "叶子结点数：" << leaf_num << endl;
 	cout << "哈夫曼编码为:" << endl;
 	map = get_huffman_code(huf_tree, leaf_num);
-	res = fopen(res_file_name, "w");
-	copy_huffman_code_to_file(res, map, leaf_num, qu, &end_length);
-	
+	res = fopen(res_file_name, "wb");
+	num = copy_huffman_code_to_file(res, map, leaf_num, qu, &end_length);
+	cout << "字节数" << num << endl;
 	
 	system("pause");
 	getchar();

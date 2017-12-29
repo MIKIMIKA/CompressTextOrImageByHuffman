@@ -5,7 +5,6 @@
 */
 
 
-
 /*初始化循环队列*/
 void init_cycle_queue(MyQueue *qu)
 {
