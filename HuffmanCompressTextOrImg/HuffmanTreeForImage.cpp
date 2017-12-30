@@ -4,6 +4,13 @@
 
 /*对哈夫曼树的各项操作*/
 
+/*计算已生成的哈夫曼编码的最长和最短编码长度，方便压缩和解压缩时使用*/
+void get_max_min_code_length(FILE *fp, TreeNode *ht, char **map, int leaf_num, DataType *max, DataType *min)
+{
+
+}
+
+
 
 /*从已有的结点数组中选取出权值最小的结点而且其父亲结点为-1,将其结点序号用min返回*/
 void select_min_tree_node(TreeNode *ht, int n, int *min)

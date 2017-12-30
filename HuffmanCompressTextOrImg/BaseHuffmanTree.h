@@ -12,4 +12,5 @@ void init_cycle_queue(MyQueue *qu);
 void in_queue(MyQueue *qu, char ch);
 int out_queue(MyQueue *qu, char *ch);
 int copy_huffman_code_to_file(FILE *fp, char **map, int leaf_num, MyQueue *queue, int *length);
+void get_max_min_code_length(FILE *fp, TreeNode *ht, char **map, int leaf_num, DataType *max, DataType *min);
 #endif // !_BaseHuffmanTree_H_
