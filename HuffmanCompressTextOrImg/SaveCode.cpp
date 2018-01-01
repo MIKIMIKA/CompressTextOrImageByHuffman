@@ -91,7 +91,7 @@ DataType get_byte(MyQueue *queue)
 为了达到压缩的目的，这里将每八个编码转换成一个字节
 存储到文件中
 */
-int copy_huffman_code_to_file(FILE *fp, char **map, int leaf_num, MyQueue *queue, int *length)
+int copy_huffman_code_to_file(FILE *fp, char **map, int leaf_num, MyQueue *queue, DataType *end_length)
 {
 	char *t;
 	DataType byte;
@@ -112,8 +112,8 @@ int copy_huffman_code_to_file(FILE *fp, char **map, int leaf_num, MyQueue *queue
 
 	}
 	//处理特殊情况，当队列中剩余的字符数不足8时，我们要对剩余的字符进行单个的组装
-	*length = queue->length;
-	i = 8 - *length;//剩余的不足八位的个数
+	*end_length = queue->length;
+	i = 8 - *end_length;//剩余的不足八位的个数
 	byte = get_byte(queue);//先将这几位组合,为了合成一个字节，对剩下的几位进行补零
 	for (j = 0; j < i; j++)
 	{
@@ -122,6 +122,5 @@ int copy_huffman_code_to_file(FILE *fp, char **map, int leaf_num, MyQueue *queue
 	fputc(byte, fp);//将最后一个字节写入文件中
 	num++;
 	init_cycle_queue(queue);
-	fclose(fp);
 	return num;
 }
