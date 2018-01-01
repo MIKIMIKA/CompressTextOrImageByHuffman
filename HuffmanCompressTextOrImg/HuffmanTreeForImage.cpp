@@ -7,7 +7,25 @@
 /*计算已生成的哈夫曼编码的最长和最短编码长度，方便压缩和解压缩时使用*/
 void get_max_min_code_length(FILE *fp, TreeNode *ht, char **map, int leaf_num, DataType *max, DataType *min)
 {
-
+	DataType length;
+	int i;
+	*max = *min = strlen(map[0]); //将第一个编码的长度赋初值给max和min
+	//将每个叶子结点和他们对应的编码长度写入文件中
+	for (i = 0; i < leaf_num; i++)
+	{
+		length = strlen(map[i]);
+		fwrite(&ht[i].data, sizeof(DataType), 1, fp); //将叶子结点的信息域写入文件中
+		fwrite(&length, sizeof(DataType), 1, fp); //将每个叶子对应的编码长度写入文件中
+		//寻找编码的最值
+		if (length < *min)
+		{
+			*min = length;
+		}
+		if (length > *max)
+		{
+			*max = length;
+		}
+	}
 }
 
 
