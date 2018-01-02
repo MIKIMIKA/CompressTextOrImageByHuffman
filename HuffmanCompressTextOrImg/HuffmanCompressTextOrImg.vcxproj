@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Compress.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_HuffmanCompressTextOrImg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -146,6 +147,7 @@
     <ClCompile Include="HuffmanTreeForImage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SaveCode.cpp" />
+    <ClCompile Include="Unzip.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="HuffmanCompressTextOrImg.h">

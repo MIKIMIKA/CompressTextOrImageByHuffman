@@ -151,7 +151,7 @@ char **get_huffman_code(TreeNode *ht, int leaf_num)
 
 
 /*从文件读取字符创建哈夫曼树，要求文件内容为英文字符或数字*/
-TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, long *file_length)
+TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, WeightType *file_length)
 {
 	TreeNode *huf_tree = NULL;
 	int i, total_num, min1, min2;
@@ -174,6 +174,7 @@ TreeNode *create_huffman_tree(FILE *fp, int *leaf_num, long *file_length)
 		data = fgetc(fp); //具体像素
 		huf_tree[data].weight++; //统计权值
 	}
+	--(*file_length); //去掉文件结束后的长度
 
 	//构建哈夫曼树并返回叶子节点个数
 	*leaf_num = sort_tree(huf_tree);

@@ -1,5 +1,9 @@
 #include "BaseHuffmanTree.h"
 #include "Structure.h"
+#include <iostream>
+
+
+using namespace std;
 /*
 下面是对已压缩编码的存储操作
 */
@@ -57,20 +61,40 @@ int out_queue(MyQueue *qu,char *ch)
 	return 1;
 }
 
+
+/*将字符转成八位0,1字符入队*/
+void cast_in_queue(MyQueue *qu, DataType ch)
+{
+	DataType temp;
+	int i;
+	for (i = 0; i < 8; i++)
+	{
+		temp = ch << i; //先定位到要处理的那个位置
+		temp >>= 7; //右移七位将位于首位的字符分离出来
+		if (temp == 1)
+		{
+			in_queue(qu, '1');
+		}
+		else
+		{
+			in_queue(qu, '0');
+		}
+	}
+}
+
 /*从队列中出队八个编码，并把他们组装成一个字节长的字符*/
 DataType get_byte(MyQueue *queue)
 {
 	DataType byte = 0;
 	int i;
 	char ch;
-	printf("%c", byte);
 	for (i = 0; i < 8; i++) //出队八个编码
 	{
 		if (out_queue(queue,&ch) != 0)
 		{
 			if (ch == '0')
 			{
-				byte = byte << 1; //如果编码为0，直接左移一位补零
+				byte <<= 1; //如果编码为0，直接左移一位补零
 			}
 			else
 			{
@@ -117,7 +141,7 @@ int copy_huffman_code_to_file(FILE *fp, char **map, int leaf_num, MyQueue *queue
 	byte = get_byte(queue);//先将这几位组合,为了合成一个字节，对剩下的几位进行补零
 	for (j = 0; j < i; j++)
 	{
-		byte = byte >> 1;
+		byte = byte << 1;
 	}
 	fputc(byte, fp);//将最后一个字节写入文件中
 	num++;
