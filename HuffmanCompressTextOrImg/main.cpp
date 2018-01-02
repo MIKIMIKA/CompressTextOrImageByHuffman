@@ -11,12 +11,10 @@
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	HuffmanCompressTextOrImg w;
-	w.show();
-	compress();
-	un_compress();
-	system("pause");
-	getchar();
+	HuffmanCompressTextOrImg *dialog = new HuffmanCompressTextOrImg;
+	dialog->show();
+	//compress();
+	//un_compress();
 	return a.exec();
 }
 
