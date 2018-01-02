@@ -11,14 +11,14 @@ void compress()
 	int i,leaf_num, num = 0;
 	WeightType byte_length = 0,file_char_num = 0,file_length;
 	char **map,**new_map,*temp;
-	char *res_file_name = "resultfile.barack";
+	char *res_file_name = "D://resultfile.bmp.huf";
 	MyQueue *qu = NULL;
 	DataType ch, end_length, min, max, byte, m;
 
 	qu = (MyQueue *)malloc(sizeof(MyQueue));
 	init_cycle_queue(qu);
 
-	fp = fopen("C://Users//22876//Desktop//test.txt", "r");
+	fp = fopen("C://Users//22876//Desktop//barack.bmp", "rb");
 	if (!fp)
 	{
 		cout << "文件打开失败" << endl;
